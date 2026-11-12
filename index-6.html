@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#17110f">
+  <meta name="description" content="FODDY CORNER — explore our menu and order directly from your table.">
+  <title>FODDY CORNER | Luxury Dining & Online Ordering</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{--bg:#17110f;--panel:#211916;--panel2:#2b201b;--gold:#d5ad68;--gold2:#f0d39a;--cream:#fff7e9;--muted:#b9a895;--line:rgba(213,173,104,.27);--green:#16834b}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--cream);font-family:"DM Sans",sans-serif}
+    body:before{content:"";position:fixed;inset:0;z-index:-1;background:radial-gradient(ellipse at 80% 0%,#50301d55,transparent 45%),radial-gradient(ellipse at 0% 65%,#3b211b55,transparent 40%)}
+    button,input{font:inherit}button{cursor:pointer}a{color:inherit;text-decoration:none}
+    .topline{height:4px;background:linear-gradient(90deg,#6b3e20,var(--gold2),#6b3e20)}
+    header{position:sticky;top:0;z-index:10;background:#17110fee;backdrop-filter:blur(16px);border-bottom:1px solid var(--line)}
+    .nav{max-width:1180px;margin:auto;padding:14px 22px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+    .brand{display:flex;align-items:center;gap:12px}.brand-mark{width:43px;height:43px;border:1px solid var(--gold);border-radius:50%;display:grid;place-items:center;color:var(--gold2);font:800 22px "Playfair Display";background:linear-gradient(145deg,#493020,#211611)}
+    .brand-name{font:800 17px "Playfair Display";letter-spacing:.09em;color:var(--gold2)}.brand-sub{display:block;color:var(--muted);font-size:9px;letter-spacing:.2em;margin-top:3px}
+    nav{display:flex;align-items:center;gap:22px;color:#e4d4bf;font-size:13px;font-weight:600}nav a:hover{color:var(--gold2)}
+    .cart-nav{border:1px solid var(--gold);background:var(--gold);color:#21150e;padding:10px 14px;border-radius:5px;font-weight:800}.count{display:inline-grid;place-items:center;min-width:21px;height:21px;padding:0 5px;margin-left:5px;background:#21150e;color:var(--gold2);border-radius:20px;font-size:11px}
+    .hero{max-width:1180px;margin:25px auto 0;padding:30px 22px 55px;display:grid;grid-template-columns:1fr 1fr;gap:38px;align-items:center}
+    .eyebrow{font-size:11px;letter-spacing:.25em;text-transform:uppercase;color:var(--gold);font-weight:800}
+    h1,h2,h3{font-family:"Playfair Display",serif}h1{font-size:clamp(46px,6.5vw,78px);line-height:1.02;margin:15px 0;color:var(--cream)}h1 span{color:var(--gold2)}
+    .hero-copy p{max-width:520px;color:var(--muted);line-height:1.85;font-size:15px}
+    .primary-btn{display:inline-flex;align-items:center;justify-content:center;margin-top:18px;padding:14px 22px;background:var(--gold);color:#21150e;border:1px solid var(--gold2);border-radius:4px;font-weight:800;letter-spacing:.03em;transition:.2s}.primary-btn:hover{transform:translateY(-2px);background:var(--gold2)}
+    .hero-photo{min-height:390px;border:1px solid var(--line);border-radius:12px;overflow:hidden;position:relative;background:linear-gradient(0deg,#130d0bd9,transparent 65%),url("https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1200&q=85") center/cover;box-shadow:0 24px 65px #0006}
+    .hero-caption{position:absolute;bottom:24px;left:25px}.hero-caption strong{font:700 27px "Playfair Display";display:block}.hero-caption small{color:var(--gold2);letter-spacing:.17em;font-size:10px}
+    .features{max-width:1136px;margin:0 auto 50px;padding:0 22px;display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+    .feature{border:1px solid var(--line);background:#211916b8;border-radius:7px;padding:17px;text-align:center}.feature b{display:block;color:var(--gold2);font:700 17px "Playfair Display";margin-bottom:5px}.feature span{color:var(--muted);font-size:12px}
+    .menu-section{background:#201814;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:65px 22px}
+    .section-inner{max-width:1136px;margin:auto}.section-head{text-align:center;margin-bottom:30px}.section-head h2{font-size:clamp(33px,4vw,47px);margin:10px 0;color:var(--cream)}.section-head p{color:var(--muted);font-size:14px}
+    .menu-tools{display:flex;justify-content:space-between;align-items:center;gap:12px;margin:25px 0 20px;flex-wrap:wrap}.search{background:#17110f;border:1px solid var(--line);border-radius:5px;color:var(--cream);padding:12px 14px;min-width:min(100%,280px);outline:none}.search:focus{border-color:var(--gold)}
+    .categories{display:flex;gap:8px;flex-wrap:wrap}.category{padding:9px 13px;border:1px solid var(--line);border-radius:30px;background:transparent;color:var(--muted);font-size:12px}.category.active,.category:hover{background:var(--gold);border-color:var(--gold);color:#21150e;font-weight:800}
+    .grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+    .food-card{background:#2a201b;border:1px solid var(--line);border-radius:9px;overflow:hidden;transition:.22s;min-width:0}.food-card:hover{transform:translateY(-4px);border-color:#c69a5b;box-shadow:0 15px 32px #0004}
+    .food-image{height:210px;background:#382a22;position:relative;overflow:hidden}.food-image img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .45s}.food-card:hover .food-image img{transform:scale(1.05)}
+    .image-fallback{height:100%;display:grid;place-items:center;color:#c5a875;font-size:13px;background:linear-gradient(135deg,#382a22,#1c1512)}
+    .food-body{padding:16px}.food-top{display:flex;justify-content:space-between;gap:10px;align-items:flex-start}.food-card h3{font-size:21px;margin:0 0 7px;color:var(--cream)}.food-desc{font-size:12px;line-height:1.55;color:var(--muted);min-height:36px}.food-price{color:var(--gold2);font-weight:800;white-space:nowrap;font-size:15px}
+    .add-btn{width:100%;margin-top:14px;padding:11px;border:1px solid var(--gold);border-radius:4px;background:transparent;color:var(--gold2);font-weight:800}.add-btn:hover{background:var(--gold);color:#21150e}
+    .empty-menu{grid-column:1/-1;text-align:center;border:1px dashed var(--line);border-radius:8px;padding:42px 20px;color:var(--muted);line-height:1.7}.empty-menu strong{display:block;color:var(--gold2);font:700 23px "Playfair Display";margin-bottom:8px}
+    .contact{max-width:1136px;margin:0 auto;padding:55px 22px;display:grid;grid-template-columns:1fr 1fr;gap:20px}.info-card{border:1px solid var(--line);border-radius:8px;background:#211916;padding:25px}.info-card h2{color:var(--gold2);font-size:27px;margin:0 0 12px}.info-card p{color:var(--muted);font-size:13px;line-height:1.7}
+    footer{text-align:center;padding:24px;background:#100b09;color:var(--muted);font-size:12px;border-top:1px solid var(--line)}footer span{color:var(--gold2)}
+    .overlay{display:none;position:fixed;inset:0;background:#000b;z-index:30;align-items:flex-start;justify-content:center;padding:20px 12px;overflow:auto}.overlay.open{display:flex}
+    .panel{width:min(590px,100%);margin:auto;background:#211916;border:1px solid var(--gold);border-radius:10px;padding:20px;box-shadow:0 24px 80px #0008}
+    .panel-head{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--line);padding-bottom:13px}.panel-head h2{margin:0;color:var(--gold2);font-size:27px}.close{border:0;background:transparent;color:var(--cream);font-size:29px;line-height:1}
+    .field{display:grid;gap:7px;margin-top:16px}.field label{font-size:12px;color:var(--gold2);font-weight:700}.field input{width:100%;padding:12px;background:#17110f;border:1px solid var(--line);border-radius:5px;color:var(--cream);outline:none}.field input:focus{border-color:var(--gold)}
+    .cart-list{display:grid;gap:12px;padding:15px 0}.cart-row{display:grid;grid-template-columns:1fr auto;gap:10px;border-bottom:1px solid var(--line);padding-bottom:12px}.cart-row strong{display:block;color:var(--cream);font-size:14px}.cart-row small{color:var(--muted);font-size:12px}.qty{display:flex;align-items:center;gap:9px;margin-top:8px}.qty button{width:28px;height:28px;background:#17110f;border:1px solid var(--gold);border-radius:4px;color:var(--gold2);font-weight:800}.row-total{color:var(--gold2);font-weight:800;white-space:nowrap}.remove{border:0;background:none;color:#e28a78;text-decoration:underline;font-size:11px;margin-left:5px}
+    .cart-total{display:flex;justify-content:space-between;border-top:1px solid var(--line);padding-top:14px;color:var(--gold2);font-size:19px;font-weight:800}.hint{color:var(--muted);font-size:11px;line-height:1.55;margin:12px 0}
+    .whatsapp-btn{width:100%;padding:15px;border:0;border-radius:5px;background:#16834b;color:white;font-weight:800;font-size:14px;margin-top:13px}.whatsapp-btn:disabled{opacity:.4;cursor:not-allowed}
+    .empty-cart{text-align:center;color:var(--muted);padding:28px 8px}
+    .toast{position:fixed;bottom:20px;left:50%;transform:translate(-50%,20px);background:var(--gold);color:#21150e;padding:11px 17px;border-radius:5px;font-size:13px;font-weight:800;opacity:0;pointer-events:none;transition:.25s;z-index:50}.toast.show{opacity:1;transform:translate(-50%,0)}
+    @media(max-width:800px){.hero{grid-template-columns:1fr;padding-top:25px}.hero-photo{min-height:300px}.grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+    @media(max-width:560px){.nav{padding:11px 13px}.brand-name{font-size:14px}.brand-mark{width:36px;height:36px}nav{gap:8px;font-size:11px}nav a{display:none}.cart-nav{padding:9px 10px;font-size:11px}.hero{padding:22px 16px 38px;gap:25px}.hero-photo{min-height:250px}.features{padding:0 16px;margin-bottom:35px;gap:7px}.feature{padding:13px 7px}.feature b{font-size:14px}.feature span{font-size:10px}.menu-section{padding:48px 14px}.grid{gap:10px}.food-image{height:145px}.food-body{padding:11px}.food-card h3{font-size:17px}.food-desc{font-size:11px;min-height:42px}.food-price{font-size:13px}.add-btn{font-size:11px;padding:10px 5px}.contact{grid-template-columns:1fr;padding:40px 15px}.menu-tools{align-items:stretch}.search{width:100%}.panel{padding:15px}}
+  </style>
+</head>
+<body>
+  <div class="topline"></div>
+  <header>
+    <div class="nav">
+      <a class="brand" href="#home"><span class="brand-mark">F</span><span><span class="brand-name">FODDY CORNER</span><span class="brand-sub">A LUXURY DINING EXPERIENCE</span></span></a>
+      <nav><a href="#home">Home</a><a href="#menu">Our Menu</a><a href="#contact">Contact</a><button class="cart-nav" id="open-cart">🛒 Cart <span class="count" id="cart-count">0</span></button></nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-copy">
+        <div class="eyebrow">Welcome to Foddy Corner</div>
+        <h1>Good food.<br><span>Great moments.</span></h1>
+        <p>Settle in, explore our menu and order your favourites directly from your table. Freshly prepared food, a warm atmosphere and a dining experience worth remembering.</p>
+        <a class="primary-btn" href="#menu">Explore Our Menu&nbsp; →</a>
+      </div>
+      <div class="hero-photo" role="img" aria-label="Elegant restaurant interior">
+        <div class="hero-caption"><strong>Made to be savoured.</strong><small>YOUR TABLE • YOUR EXPERIENCE</small></div>
+      </div>
+    </section>
+
+    <section class="features" aria-label="Restaurant highlights">
+      <div class="feature"><b>Freshly Prepared</b><span>Made with care, served with love</span></div>
+      <div class="feature"><b>Easy Table Ordering</b><span>Order right from your seat</span></div>
+      <div class="feature"><b>WhatsApp Checkout</b><span>Your order goes straight to us</span></div>
+    </section>
+
+    <section class="menu-section" id="menu">
+      <div class="section-inner">
+        <div class="section-head"><div class="eyebrow">Discover our flavours</div><h2>Our Menu</h2><p>Choose your favourites, add them to your cart and place your order.</p></div>
+        <div class="menu-tools">
+          <input class="search" id="search" type="search" placeholder="Search food..." aria-label="Search menu">
+          <div class="categories" id="categories"></div>
+        </div>
+        <div class="grid" id="food-grid"></div>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="info-card"><h2>Visit FODDY CORNER</h2><p>Enjoy your meal in our restaurant. Scan the table QR code, enter your table number and order without waiting for a printed menu.</p></div>
+      <div class="info-card"><h2>Need assistance?</h2><p>For help with your order, contact our team on WhatsApp.</p><a class="primary-btn" href="https://wa.me/918003779544" target="_blank" rel="noopener">Chat on WhatsApp →</a></div>
+    </section>
+  </main>
+
+  <footer>© <span id="year"></span> <span>FODDY CORNER</span> • Good food, great moments.</footer>
+
+  <div class="overlay" id="details-overlay" aria-hidden="true">
+    <div class="panel" role="dialog" aria-modal="true" aria-labelledby="details-title">
+      <div class="panel-head"><h2 id="details-title">Welcome to FODDY CORNER</h2><button class="close" id="close-details" aria-label="Close">×</button></div>
+      <p class="hint">Please enter your details before placing an order.</p>
+      <div class="field"><label for="customer-name">Your name</label><input id="customer-name" autocomplete="name" placeholder="Enter your name"></div>
+      <div class="field"><label for="table-number">Table number</label><input id="table-number" inputmode="numeric" placeholder="e.g. 5"></div>
+      <button class="primary-btn" id="save-details" style="width:100%">Continue to menu</button>
+    </div>
+  </div>
+
+  <div class="overlay" id="cart-overlay" aria-hidden="true">
+    <div class="panel" role="dialog" aria-modal="true" aria-labelledby="cart-title">
+      <div class="panel-head"><h2 id="cart-title">Your Order</h2><button class="close" id="close-cart" aria-label="Close cart">×</button></div>
+      <div id="customer-summary" class="hint"></div>
+      <div id="cart-content"></div>
+      <div class="cart-total"><span>Total</span><span id="cart-total">₹0</span></div>
+      <p class="hint">Your order will be sent to FODDY CORNER on WhatsApp. The restaurant will confirm your order and final availability.</p>
+      <button class="whatsapp-btn" id="checkout" disabled>Send Order on WhatsApp</button>
+    </div>
+  </div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script>
+    /*
+      ADD YOUR MENU HERE:
+      1. Upload each food photo to your GitHub repository.
+      2. Put the exact image filename in "image" (example: "images/paneer-tikka.jpg").
+      3. Change name, description, price and category.
+      4. Price must be a number, without the ₹ symbol.
+      You can add as many food items as you want by copying one object.
+    */
+    const MENU = [
+      // Example:
+      // { id: 1, name: "Paneer Tikka", description: "Smoky grilled paneer with spices.", price: 180, category: "Starters", image: "images/paneer-tikka.jpg" },
+      // { id: 2, name: "Veg Biryani", description: "Fragrant rice cooked with vegetables.", price: 160, category: "Main Course", image: "images/veg-biryani.jpg" }
+    ];
+
+    // WhatsApp number in international format, without + or spaces.
+    const WHATSAPP_NUMBER = "918003779544";
+    const CART_STORAGE_KEY = "foddyCornerCartV1";
+    const CUSTOMER_STORAGE_KEY = "foddyCornerCustomerV1";
+
+    const $ = id => document.getElementById(id);
+    const money = amount => "₹" + Number(amount).toLocaleString("en-IN", {maximumFractionDigits:2});
+    let cart = {};
+    let customer = {};
+    try { cart = JSON.parse(localStorage.getItem(CART_STORAGE_KEY) || "{}") || {}; } catch(e) { cart = {}; }
+    try { customer = JSON.parse(sessionStorage.getItem(CUSTOMER_STORAGE_KEY) || "{}") || {}; } catch(e) { customer = {}; }
+
+    function showToast(message){
+      $("toast").textContent = message;
+      $("toast").classList.add("show");
+      clearTimeout(showToast.timer);
+      showToast.timer = setTimeout(() => $("toast").classList.remove("show"), 2100);
+    }
+    function saveCart(){ try { localStorage.setItem(CART_STORAGE_KEY, JSON.stringify(cart)); } catch(e){} }
+    function itemById(id){ return MENU.find(item => String(item.id) === String(id)); }
+    function cartCount(){ return Object.values(cart).reduce((sum,qty) => sum + qty, 0); }
+    function cartTotal(){ return Object.entries(cart).reduce((sum,[id,qty]) => { const item=itemById(id); return sum+(item ? item.price*qty : 0); },0); }
+
+    function renderCategories(){
+      const categories = ["All", ...new Set(MENU.map(item => item.category || "Other"))];
+      $("categories").innerHTML = categories.map((cat,i) => `<button class="category ${i===0?"active":""}" data-category="${escapeHtml(cat)}">${escapeHtml(cat)}</button>`).join("");
+      $("categories").querySelectorAll("button").forEach(button => button.addEventListener("click", () => {
+        $("categories").querySelectorAll("button").forEach(b => b.classList.remove("active"));
+        button.classList.add("active");
+        renderMenu(button.dataset.category, $("search").value);
+      }));
+    }
+    function escapeHtml(value){
+      return String(value).replace(/[&<>"']/g, char => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[char]));
+    }
+    function renderMenu(category="All", search=""){
+      const filtered = MENU.filter(item => (category==="All" || (item.category||"Other")===category) && (item.name+" "+(item.description||"")).toLowerCase().includes(search.toLowerCase()));
+      if(!filtered.length){
+        $("food-grid").innerHTML = MENU.length
+          ? '<div class="empty-menu"><strong>No matching dishes found</strong>Try another search or category.</div>'
+          : '<div class="empty-menu"><strong>Our menu is being prepared.</strong>Food items, prices and photos will appear here once the restaurant menu is added.<br><br>Upload your photos to GitHub and add each dish in the MENU list inside this file.</div>';
+        return;
+      }
+      $("food-grid").innerHTML = filtered.map(item => `
+        <article class="food-card">
+          <div class="food-image">${item.image ? `<img src="${escapeHtml(item.image)}" alt="${escapeHtml(item.name)}" loading="lazy" onerror="this.style.display='none';this.parentElement.innerHTML='<div class=&quot;image-fallback&quot;>Food photo coming soon</div>'">` : '<div class="image-fallback">Food photo coming soon</div>'}</div>
+          <div class="food-body">
+            <div class="food-top"><div><h3>${escapeHtml(item.name)}</h3><div class="food-desc">${escapeHtml(item.description||"Freshly prepared for you.")}</div></div><div class="food-price">${money(item.price)}</div></div>
+            <button class="add-btn" data-add="${escapeHtml(item.id)}">＋ Add to Cart</button>
+          </div>
+        </article>`).join("");
+      $("food-grid").querySelectorAll("[data-add]").forEach(button => button.addEventListener("click", () => addToCart(button.dataset.add)));
+    }
+    function addToCart(id){
+      const item=itemById(id); if(!item) return;
+      cart[id]=(cart[id]||0)+1; saveCart(); updateCartUI(); showToast(item.name+" added to cart");
+    }
+    function changeQty(id,delta){
+      if(!cart[id]) return;
+      cart[id]+=delta; if(cart[id]<=0) delete cart[id];
+      saveCart(); updateCartUI();
+    }
+    function removeItem(id){ delete cart[id]; saveCart(); updateCartUI(); }
+    function updateCartUI(){
+      $("cart-count").textContent=cartCount();
+      $("cart-total").textContent=money(cartTotal());
+      $("checkout").disabled=cartCount()===0;
+      $("customer-summary").textContent=customer.name ? `Ordering for ${customer.name} • Table ${customer.table}` : "Your name and table number will be requested before checkout.";
+      const entries=Object.entries(cart).filter(([id,qty]) => qty>0 && itemById(id));
+      $("cart-content").innerHTML=entries.length ? `<div class="cart-list">${entries.map(([id,qty])=>{
+        const item=itemById(id);
+        return `<div class="cart-row"><div><strong>${escapeHtml(item.name)}</strong><small>${money(item.price)} each</small><div class="qty"><button data-minus="${escapeHtml(id)}" aria-label="Decrease quantity">−</button><b>${qty}</b><button data-plus="${escapeHtml(id)}" aria-label="Increase quantity">+</button><button class="remove" data-remove="${escapeHtml(id)}">Remove</button></div></div><div class="row-total">${money(item.price*qty)}</div></div>`;
+      }).join("")}</div>` : '<div class="empty-cart">Your cart is empty.<br>Add delicious food from our menu to get started.</div>';
+      $("cart-content").querySelectorAll("[data-minus]").forEach(b=>b.addEventListener("click",()=>changeQty(b.dataset.minus,-1)));
+      $("cart-content").querySelectorAll("[data-plus]").forEach(b=>b.addEventListener("click",()=>changeQty(b.dataset.plus,1)));
+      $("cart-content").querySelectorAll("[data-remove]").forEach(b=>b.addEventListener("click",()=>removeItem(b.dataset.remove)));
+    }
+    function openOverlay(id){ $(id).classList.add("open"); $(id).setAttribute("aria-hidden","false"); }
+    function closeOverlay(id){ $(id).classList.remove("open"); $(id).setAttribute("aria-hidden","true"); }
+    function askCustomerThenCart(){
+      if(!customer.name || !customer.table){
+        $("customer-name").value=customer.name||"";
+        $("table-number").value=customer.table||"";
+        openOverlay("details-overlay");
+      } else openOverlay("cart-overlay");
+    }
+    $("save-details").addEventListener("click",()=>{
+      const name=$("customer-name").value.trim();
+      const table=$("table-number").value.trim();
+      if(!name || !table){ showToast("Please enter your name and table number"); return; }
+      customer={name,table};
+      try{sessionStorage.setItem(CUSTOMER_STORAGE_KEY,JSON.stringify(customer));}catch(e){}
+      closeOverlay("details-overlay"); updateCartUI(); openOverlay("cart-overlay");
+    });
+    $("open-cart").addEventListener("click",askCustomerThenCart);
+    $("close-details").addEventListener("click",()=>closeOverlay("details-overlay"));
+    $("close-cart").addEventListener("click",()=>closeOverlay("cart-overlay"));
+    ["details-overlay","cart-overlay"].forEach(id=>$(id).addEventListener("click",e=>{if(e.target===$(id))closeOverlay(id);}));
+    $("search").addEventListener("input",()=>{
+      const active=$("categories").querySelector(".active");
+      renderMenu(active?active.dataset.category:"All",$("search").value);
+    });
+    $("checkout").addEventListener("click",()=>{
+      if(!cartCount()) return;
+      if(!customer.name || !customer.table){closeOverlay("cart-overlay");askCustomerThenCart();return;}
+      const lines=Object.entries(cart).filter(([id,qty])=>qty>0&&itemById(id)).map(([id,qty])=>{
+        const item=itemById(id); return `• ${item.name} x ${qty} = ${money(item.price*qty)}`;
+      });
+      const message=[
+        "🍽️ *NEW ORDER — FODDY CORNER*",
+        "",
+        `👤 Customer: ${customer.name}`,
+        `🪑 Table Number: ${customer.table}`,
+        "",
+        "*Order Items:*",
+        ...lines,
+        "",
+        `*TOTAL: ${money(cartTotal())}*`,
+        "",
+        "Please confirm my order. Thank you!"
+      ].join("\n");
+      const url="https://wa.me/"+WHATSAPP_NUMBER+"?text="+encodeURIComponent(message);
+      window.open(url,"_blank","noopener");
+    });
+    $("year").textContent=new Date().getFullYear();
+    renderCategories(); renderMenu(); updateCartUI();
+  </script>
+</body>
+</html>
